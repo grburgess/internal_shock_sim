@@ -1,0 +1,21 @@
+AUTOMAKE_OPTIONS = subdir-objects foreign
+ACLOCAL_AMFLAGS = ${ACLOCAL_FLAGS}
+
+AM_CPPFLAGS =  -I$(top_srcdir)/include
+
+
+
+bin_PROGRAMS = grbSim
+grbSim_SOURCES =	src/jet.cxx \
+			src/shell.cxx  \
+			include/jet.hh    \
+			include/shell.hh    \
+			include/collisionHist.hh\
+			include/shellState.hh\
+			grbSim.cxx
+
+AM_CPPFLAGS += $(gsl_CFLAGS)
+
+AM_CPPFLAGS += -O2
+
+grbSim_LDADD = $(gsl_LIBS)
